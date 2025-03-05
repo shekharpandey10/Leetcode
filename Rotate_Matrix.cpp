@@ -1,31 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution
-{
-public:
-    vector<vector<int>> merge(vector<vector<int>> &intervals)
-    {
-        sort(intervals.begin(), intervals.end());
-        int start = intervals[0][0];
-        int end = intervals[0][1];
-        vector<vector<int>> ans;
-
-        for (int i = 1; i < intervals.size(); i++)
-        {
-
-            if (intervals[i][0] <= end)
-            {
-                end = max(intervals[i][1], end);
-                start = min(start, intervals[i][0]);
+class Solution {
+    public:
+        void rotate(vector<vector<int>>& matrix) {
+            
+            for(int i=0;i<matrix.size();i++){
+                for(int j=i;j<matrix.size();j++){
+                    swap(matrix[i][j],matrix[j][i]);
+                }
             }
-            else
-            {
-                ans.push_back({start, end});
-                start = intervals[i][0];
-                end = intervals[i][1];
+            
+            for(int i=0;i<matrix.size();i++){
+                reverse(matrix[i].begin(),matrix[i].end());
             }
         }
-        ans.push_back({start, end});
-        return ans;
-    }
-};
+    };
