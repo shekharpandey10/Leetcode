@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -63,8 +61,51 @@ public:
         }
         return true;
     }
+    int sizeLL(ListNode* head){
+        int c=0;
+        while(head!=nullptr){
+            c++;
+            head=head->next;
+        }
+        return c;
+    }
+    ListNode* reverseLL(ListNode* head){
+        if(head->next==nullptr){
+            return head;
+        }
+        ListNode* List=reverseLL(head->next);
+        head->next->next=head;
+        head->next=nullptr;
+        return List;
+    }
+    bool usingTwoPointerApproach(ListNode* head){
+        ListNode* slow=head,*fast=head,*temp=head;
+        ListNode* secondList;
+       int n= sizeLL(head);
+       if(n==1) return true;
+           while(fast!=nullptr){
+
+            if(fast->next==nullptr){
+                fast=nullptr;
+                break;
+            }else fast=fast->next->next;
+            slow=slow->next;
+           }
+           if(n%2==0)
+          secondList=reverseLL(slow);
+         else  secondList=reverseLL(slow->next);
+         while(secondList!=nullptr){
+            if(head->val!=secondList->val) return false;
+            secondList=secondList->next;
+            head=head->next;
+         }
+         return true;
+        
+    }
     bool isPalindrome(ListNode* head) {
+        return usingTwoPointerApproach(head);
         return usingRecursion(head, head);
+
         return usingStack(head);
         return bruteForce(head);
        
