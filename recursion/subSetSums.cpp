@@ -16,7 +16,6 @@ class Solution {
         vector<int>ans;
         int sum=0;
         int n=arr.size();
-        
         solve(i,arr,n,ans,sum);
         return ans;
         
