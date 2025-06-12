@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
@@ -29,3 +31,9 @@ public:
         return true;
     }
 };
+auto init=[](){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 0;
+}();
