@@ -8,19 +8,11 @@ public:
         while(i<nums.size()){
             vector<int>temp;
             int j=i;
-            while(j<=i+2){
-                if(nums[i+2]-nums[j]<=k){
-                    temp.push_back(nums[j]);
-                }else if(nums[i+2]-nums[j]>k){
-                    return {};
-                }
-                j++;
-            }
-            if(flag)
+            if(nums[i+2]-nums[i]>k) return {};
+            else temp.insert(temp.end(),nums.begin()+i,nums.begin()+i+3);
             ans.push_back(temp);
             i+=3;
         }
-
         return ans;
     }
 };
