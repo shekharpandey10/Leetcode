@@ -22,6 +22,7 @@ This repo contains my personal solutions to selected problems from [LeetCode](ht
 
 ## 📁 Folder Structure
 
+```
 Leetcode/
 │
 ├── Arrays/
@@ -40,7 +41,7 @@ Leetcode/
 │ ├── bfs.cpp
 │ └── ...
 └── README.md
-
+```
 
 Each file is named after the problem it's solving and includes inline comments for clarity.
 
