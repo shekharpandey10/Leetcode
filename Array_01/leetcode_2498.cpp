@@ -26,3 +26,4 @@ public:
         return usingtwoPointer(nums,target);
     }
 };
+
